@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPENSTAGE(S) — Stages for Inclusion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor__dot" id="cursorDot"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__brand">
+      <a href="#" class="header__logo">OPEN<em>STAGE(S)</em></a>
+      <img src="img/funded_ES/horizontal/RGB/PNG/ES_FundedbytheEU_RGB_WHITE.png" alt="Cofinanciado por la Unión Europea"
+        class="header__eu-logo" />
+    </div>
+    <button class="header__toggle" id="menuBtn" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Nav overlay -->
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <div class="nav-overlay__links">
+      <a href="#mission" class="nav-link" data-num="01">Misión</a>
+      <a href="#partners" class="nav-link" data-num="02">Partners</a>
+      <a href="#phases" class="nav-link" data-num="03">Fases</a>
+      <a href="#contact" class="nav-link" data-num="04">Contacto</a>
+    </div>
+    <div class="nav-overlay__meta">
+      <p>Proyecto cofinanciado por la Unión Europea</p>
+      <p>Creative Europe · 2024–2026</p>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══ HERO ══════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+
+      <div class="hero-assets" id="heroAssets">
+        <div class="hero-asset" style="z-index:6">
+          <div class="hero-asset__inner">
+            <img src="img/hero1.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay"></div>
+          </div>
+        </div>
+        <div class="hero-asset" style="z-index:5">
+          <div class="hero-asset__inner">
+            <img src="img/hero2.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay" style="background:rgba(0,5,20,0.55)"></div>
+          </div>
+        </div>
+        <div class="hero-asset" style="z-index:4">
+          <div class="hero-asset__inner">
+            <img src="img/hero3.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay" style="background:rgba(10,4,0,0.5)"></div>
+          </div>
+        </div>
+        <div class="hero-asset" style="z-index:3">
+          <div class="hero-asset__inner">
+            <img src="img/hero4.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay" style="background:rgba(5,0,12,0.55)"></div>
+          </div>
+        </div>
+        <div class="hero-asset" style="z-index:2">
+          <div class="hero-asset__inner">
+            <img src="img/hero5.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay" style="background:rgba(0,8,5,0.5)"></div>
+          </div>
+        </div>
+        <div class="hero-asset" style="z-index:1">
+          <div class="hero-asset__inner">
+            <img src="img/hero6.jpg" alt="" class="hero-img" />
+            <div class="hero-overlay" style="background:rgba(0,0,0,0.6)"></div>
+          </div>
+        </div>
+
+        <!-- Referencia invisible para medir el tamaño inicial -->
+        <span class="intro-ref" aria-hidden="true"></span>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="oh"><span class="word">OPEN</span></span>
+          <span class="oh"><span class="word italic">STAGE(S)</span></span>
+        </h1>
+        <p class="hero-sub">
+          <span class="oh"><span class="word">Stages</span></span>
+          <span class="oh"><span class="word">for</span></span>
+          <span class="oh"><span class="word">Inclusion</span></span>
+        </p>
+      </div>
+
+      <div class="hero-scroll" id="heroScroll">
+        <span>Scroll</span>
+        <div class="hero-scroll__line"></div>
+      </div>
+
+    </section>
+
+    <!-- ═══ MARQUEE ════════════════════════════════════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Inclusión · Excelencia · Europa · Teatro · Arte · Comunidad · Colaboración · Escena · </span>
+        <span>Inclusión · Excelencia · Europa · Teatro · Arte · Comunidad · Colaboración · Escena · </span>
+        <span>Inclusión · Excelencia · Europa · Teatro · Arte · Comunidad · Colaboración · Escena · </span>
+      </div>
+    </div>
+
+    <!-- ═══ MISSION ════════════════════════════════════════ -->
+    <section class="mission" id="mission">
+
+      <div class="mission__intro">
+        <span class="label">01 — Presentación del Proyecto</span>
+        <h2 class="mission__title">
+          <span class="oh"><span class="rv">OPENSTAGE(S)</span></span><br>
+          <span class="oh"><span class="rv">Stage(s) for Inclusion</span></span>
+        </h2>
+      </div>
+      <p class="mission__body reveal-fade">
+        <strong>Duración:</strong> 12 meses<br>
+        <strong>Misión Principal:</strong> Empoderar a los jóvenes, tanto con como sin discapacidades, a través de
+        actividades creativas y culturales.<br>
+        <strong>Destinatarios Directos:</strong> Jóvenes de entre 16 y 30 años, con y sin discapacidad.<br>
+        <strong>Destinatarios Indirectos:</strong> Formadores juveniles, familias de los jóvenes, comunidades locales y
+        el sector juvenil y cultural en Europa.
+      </p>
+
+      <!-- ── Gallery strip ── -->
+      <div class="gallery-strip reveal-fade">
+        <div class="gallery-strip__track">
+          <div class="gallery-strip__item"><img src="img/pexels-donaldtong94-109669.jpg" alt="Actuación en escena" />
+          </div>
+          <div class="gallery-strip__item"><img src="img/pexels-egetutuncu-35898488.jpg" alt="Teatro inclusivo" /></div>
+          <div class="gallery-strip__item"><img src="img/pexels-thirdman-6194032.jpg" alt="Taller creativo" /></div>
+          <div class="gallery-strip__item"><img src="img/pexels-pixabay-63328.jpg" alt="Artes escénicas" /></div>
+          <div class="gallery-strip__item"><img src="img/pexels-donaldtong94-109669.jpg" alt="Actuación en escena" />
+          </div>
+          <div class="gallery-strip__item"><img src="img/pexels-egetutuncu-35898488.jpg" alt="Teatro inclusivo" /></div>
+          <div class="gallery-strip__item"><img src="img/pexels-thirdman-6194032.jpg" alt="Taller creativo" /></div>
+          <div class="gallery-strip__item"><img src="img/pexels-pixabay-63328.jpg" alt="Artes escénicas" /></div>
+        </div>
+      </div>
+
+
+      <div class="pillars">
+        <div class="pillar reveal-up">
+          <span class="pillar__num">01</span>
+          <h3 class="pillar__title">Objetivos</h3>
+          <ul class="pillar__desc">
+            <li>Promover la inclusión activa mediante talleres creativos y teatrales en los que participen al menos 80
+              personas, garantizando que un mínimo del 30% sean jóvenes con discapacidad.</li>
+            <li>Desarrollar metodologías digitales inclusivas mediante la formación de al menos ocho trabajadores
+              juveniles (dos por organización).</li>
+            <li>Crear un conjunto de herramientas digitales que contenga diez buenas prácticas transferibles.</li>
+            <li>Empoderar a los jóvenes para participar a nivel local y europeo mediante la producción de un
+              cortometraje que se presentará en el Festival de Cine Social Artelesia y en línea.</li>
+          </ul>
+        </div>
+        <div class="pillar reveal-up" style="transition-delay:.1s">
+          <span class="pillar__num">02</span>
+          <h3 class="pillar__title">Prácticas Ecológicas</h3>
+          <ul class="pillar__desc">
+            <li>Reuniones y coordinación en línea para reducir emisiones, limitando los viajes a eventos
+              internacionales.</li>
+            <li>Uso de materiales reciclados, sedes ecológicas y prioridad a la difusión digital sobre impresiones
+              físicas en talleres locales.</li>
+          </ul>
+        </div>
+        <div class="pillar reveal-up" style="transition-delay:.2s">
+          <span class="pillar__num">03</span>
+          <h3 class="pillar__title">Equipo</h3>
+          <ul class="pillar__desc">
+            <li><strong>Libero Teatro:</strong> Taller local sobre teatro inclusivo y actuación.</li>
+            <li><strong>Sinergie:</strong> Taller de digitalización inclusiva, gestión y evaluación, plan de
+              sostenibilidad.</li>
+            <li><strong>Barrio de Oportunidades (Badeo):</strong> Taller de cinefórum inclusivo, gestión de riesgos,
+              sostenibilidad y feedback.</li>
+            <li><strong>Teatro Para Tod@s:</strong> Taller de teatro inclusivo e improvisación.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══ STATS ══════════════════════════════════════════ -->
+    <div class="stats">
+      <div class="stats__track">
+        <div class="stat">
+          <span class="stat__n">80+</span>
+          <span class="stat__l">Artistas</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">4</span>
+          <span class="stat__l">Países</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">3</span>
+          <span class="stat__l">Proyectos</span>
+        </div>
+        <div class="stat">
+          <span class="stat__n">2026</span>
+          <span class="stat__l">Horizonte</span>
+        </div>
+        <!-- Duplicated for infinite loop -->
+        <div class="stat" aria-hidden="true">
+          <span class="stat__n">80+</span>
+          <span class="stat__l">Artistas</span>
+        </div>
+        <div class="stat" aria-hidden="true">
+          <span class="stat__n">4</span>
+          <span class="stat__l">Países</span>
+        </div>
+        <div class="stat" aria-hidden="true">
+          <span class="stat__n">3</span>
+          <span class="stat__l">Proyectos</span>
+        </div>
+        <div class="stat" aria-hidden="true">
+          <span class="stat__n">2026</span>
+          <span class="stat__l">Horizonte</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PARTNERS ════════════════════════════════════════ -->
+    <section class="partners" id="partners">
+
+      <div class="partners__head">
+        <div class="partners__head-left">
+          <span class="label">02 — The Ensemble</span>
+          <h2 class="partners__title">
+            <span class="oh"><span class="rv">Nuestros</span></span><br>
+            <span class="oh"><span class="rv">Partners</span></span>
+          </h2>
+        </div>
+        <p class="partners__intro reveal-fade">
+          Una red transnacional de cuatro organizaciones comprometidas con la inclusión y la excelencia artística en la
+          escena europea.
+        </p>
+      </div>
+
+      <div class="partners__grid">
+
+        <div class="pcard reveal-up" data-name="Libero Teatro" data-role="Dirección Artística"
+          data-url="https://www.uilt.it/"
+          data-info="Organización con base en Italia. Encargada de impartir el taller local sobre teatro inclusivo y actuación, promoviendo la integración a través de las artes escénicas.">
+          <div class="pcard__top">
+            <span class="pcard__country">Italia</span>
+            <span class="pcard__num">01</span>
+          </div>
+          <div class="pcard__logo-wrap">
+            <img src="img/libero-teatro.jpg" alt="Libero Teatro" />
+          </div>
+          <div class="pcard__body">
+            <h3 class="pcard__name">Libero Teatro</h3>
+            <p class="pcard__role">Dirección Artística</p>
+          </div>
+        </div>
+
+        <div class="pcard reveal-up" style="transition-delay:.1s" data-name="Sinergie"
+          data-role="Inclusión Social & Cultura"
+          data-url="https://sinergie-italia.com/"
+          data-info="Organización italiana. Responsable del taller de digitalización inclusiva, así como de la gestión, evaluación general y el plan estratégico de sostenibilidad del proyecto.">
+          <div class="pcard__top">
+            <span class="pcard__country">Italia</span>
+            <span class="pcard__num">02</span>
+          </div>
+          <div class="pcard__logo-wrap">
+            <img src="img/logo-sinergie-png.png" alt="Sinergie" />
+          </div>
+          <div class="pcard__body">
+            <h3 class="pcard__name">Sinergie</h3>
+            <p class="pcard__role">Inclusión Social &amp; Cultura</p>
+          </div>
+        </div>
+
+        <div class="pcard reveal-up" style="transition-delay:.2s" data-name="Barrio de Oportunidades"
+          data-role="Centro Erasmus+, Sevilla"
+          data-url="https://barriodeoportunidades.es/"
+          data-info="Entidad española (Badeo). Coordina el taller de cinefórum inclusivo, gestiona los riesgos del consorcio y se ocupa de la difusión, sostenibilidad local y recolección de feedback.">
+          <div class="pcard__top">
+            <span class="pcard__country">España</span>
+            <span class="pcard__num">03</span>
+          </div>
+          <div class="pcard__logo-wrap">
+            <img src="img/logobarrio.png" alt="Barrio de Oportunidades" />
+          </div>
+          <div class="pcard__body">
+            <h3 class="pcard__name">Barrio de Oportunidades</h3>
+            <p class="pcard__role">Centro Erasmus+, Sevilla</p>
+          </div>
+        </div>
+
+        <div class="pcard reveal-up" style="transition-delay:.3s" data-name="Teatro Para Tod@s"
+          data-role="Teatro Inclusivo & Participación"
+          data-url="https://teatroparatodos.es/"
+          data-info="Fundación basada en España enfocada en la diversidad. Lidera el taller principal de teatro inclusivo e improvisación, empoderando a los jóvenes mediante herramientas dramáticas.">
+          <div class="pcard__top">
+            <span class="pcard__country">España</span>
+            <span class="pcard__num">04</span>
+          </div>
+          <div class="pcard__logo-wrap">
+            <img src="img/unnamed (1).jpg" alt="Teatro Para Todos" />
+          </div>
+          <div class="pcard__body">
+            <h3 class="pcard__name">Teatro Para Tod@s</h3>
+            <p class="pcard__role">Teatro Inclusivo &amp; Participación</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ═══ PHASES ══════════════════════════════════════════ -->
+    <section class="phases" id="phases">
+
+      <div class="phases__head">
+        <span class="label">03 — Fases del Proyecto</span>
+        <h2 class="phases__title">
+          <span class="oh"><span class="rv">Stages & Actividades</span></span>
+        </h2>
+      </div>
+      <div class="phases__grid">
+        <div class="phase reveal-up">
+          <div class="phase__num">Gestión</div>
+          <h3 class="phase__name">Gestión y Coordinación</h3>
+          <p class="phase__desc">Reuniones de coordinación periódicas en línea cada tres meses, uso de Google Drive y
+            WhatsApp para la comunicación.</p>
+        </div>
+        <div class="phase reveal-up" style="transition-delay:.1s">
+          <div class="phase__num">01</div>
+          <h3 class="phase__name">Habilidades digitales</h3>
+          <p class="phase__desc">Lanzamiento de un "Online Creative Hub" accesible tras el proyecto. Producción del
+            cortometraje que documentará los talleres. Creación de metodologías digitales transferibles en el último
+            mes.</p>
+        </div>
+        <div class="phase reveal-up" style="transition-delay:.2s">
+          <div class="phase__num">02</div>
+          <h3 class="phase__name">Inclusión física</h3>
+          <p class="phase__desc">Cada organización impartirá un taller local para entre 15 y 20 jóvenes. Taller
+            Internacional en Sevilla con 28 participantes para crear representaciones artísticas inclusivas y diálogo
+            intercultural.</p>
+        </div>
+        <div class="phase reveal-up" style="transition-delay:.3s">
+          <div class="phase__num">03</div>
+          <h3 class="phase__name">Actividad internacional</h3>
+          <p class="phase__desc">En octubre, viaje a Benevento, Italia, para asistir al Festival de Cine Social
+            Artelesia, presentar el cortometraje y organizar un cine-foro inclusivo.</p>
+        </div>
+        <div class="phase reveal-up" style="transition-delay:.4s">
+          <div class="phase__num">Difusión</div>
+          <h3 class="phase__name">Difusión y Sostenibilidad</h3>
+          <p class="phase__desc">Dos eventos locales de difusión final en Nápoles y Sevilla (50-100 participantes cada
+            uno). Distribución de un kit de buenas prácticas con al menos 70 descargas.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══ CTA ══════════════════════════════════════════════ -->
+    <section class="cta" id="contact">
+      <h2 class="cta__title">
+        <span class="oh"><span class="rv">THE STAGE</span></span><br>
+        <span class="oh"><span class="rv italic">IS YOURS.</span></span>
+      </h2>
+      <a href="mailto:info@openstages.eu" class="btn-fill">Únete al proyecto</a>
+    </section>
+
+    <!-- ═══ EU ════════════════════════════════════════════════ -->
+    <div class="eu-strip">
+      <img src="img/funded_ES/horizontal/RGB/PNG/ES_FundedbytheEU_RGB_POS.png" alt="Cofinanciado por la Unión Europea"
+        class="eu-strip__badge" />
+      <p class="eu-strip__text">
+        Proyecto cofinanciado por la Unión Europea a través del programa Creative Europe 2024–2026. Los puntos de vista
+        y opiniones expresados son únicamente los del autor o autores y no reflejan necesariamente los de la Unión
+        Europea ni los de la Agencia Ejecutiva Europea de Educación y Cultura.
+      </p>
+    </div>
+
+  <!-- Modal Partners -->
+  <div class="partner-modal" id="partnerModal" aria-hidden="true">
+    <div class="partner-modal__bg" id="partnerModalBg"></div>
+    <div class="partner-modal__content" id="partnerModalContent">
+      <button class="partner-modal__close" id="partnerModalClose" aria-label="Cerrar modal">
+        <span></span><span></span>
+      </button>
+      <div class="partner-modal__inner">
+        <h3 class="partner-modal__name" id="partnerModalName"></h3>
+        <p class="partner-modal__role" id="partnerModalRole"></p>
+        <p class="partner-modal__info" id="partnerModalInfo"></p>
+        <a href="#" class="btn-modal-link" id="partnerModalLink" target="_blank" rel="noopener noreferrer">Visitar web oficial</a>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__row footer__row--top">
+      <span class="footer__logo">OPENSTAGE(S)</span>
+      <span class="footer__tag">Stages for Inclusion · 2024–2026</span>
+    </div>
+    <div class="footer__row footer__row--bottom">
+      <span>© 2024 OPENSTAGE(S) — Creative Europe</span>
+      <span>Libero Teatro · Sinergie · Barrio de Oportunidades · Teatro Para Tod@s</span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="main.js?v=1.2"></script>
+
+</body>
+
+</html>
