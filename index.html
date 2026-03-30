@@ -14,6 +14,9 @@
 
 <body>
 
+  <!-- Skip link (accesibilidad teclado) -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
   <!-- Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor__dot" id="cursorDot"></div>
@@ -25,7 +28,7 @@
       <img src="img/funded_ES/horizontal/RGB/PNG/ES_FundedbytheEU_RGB_WHITE.png" alt="Cofinanciado por la Unión Europea"
         class="header__eu-logo" />
     </div>
-    <button class="header__toggle" id="menuBtn" aria-label="Abrir menú">
+    <button class="header__toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navOverlay">
       <span></span>
       <span></span>
     </button>
@@ -45,7 +48,7 @@
     </div>
   </nav>
 
-  <main>
+  <main id="main-content">
 
     <!-- ═══ HERO ══════════════════════════════════════════ -->
     <section class="hero" id="hero">
@@ -104,7 +107,7 @@
         </p>
       </div>
 
-      <div class="hero-scroll" id="heroScroll">
+      <div class="hero-scroll" id="heroScroll" aria-hidden="true">
         <span>Scroll</span>
         <div class="hero-scroll__line"></div>
       </div>
@@ -254,7 +257,7 @@
 
       <div class="partners__grid">
 
-        <div class="pcard reveal-up" data-name="Libero Teatro" data-role="Dirección Artística"
+        <div class="pcard reveal-up" tabindex="0" role="button" data-name="Libero Teatro" data-role="Dirección Artística"
           data-url="https://www.uilt.it/"
           data-info="Organización con base en Italia. Encargada de impartir el taller local sobre teatro inclusivo y actuación, promoviendo la integración a través de las artes escénicas.">
           <div class="pcard__top">
@@ -270,7 +273,7 @@
           </div>
         </div>
 
-        <div class="pcard reveal-up" style="transition-delay:.1s" data-name="Sinergie"
+        <div class="pcard reveal-up" style="transition-delay:.1s" tabindex="0" role="button" data-name="Sinergie"
           data-role="Inclusión Social & Cultura"
           data-url="https://sinergie-italia.com/"
           data-info="Organización italiana. Responsable del taller de digitalización inclusiva, así como de la gestión, evaluación general y el plan estratégico de sostenibilidad del proyecto.">
@@ -287,7 +290,7 @@
           </div>
         </div>
 
-        <div class="pcard reveal-up" style="transition-delay:.2s" data-name="Barrio de Oportunidades"
+        <div class="pcard reveal-up" style="transition-delay:.2s" tabindex="0" role="button" data-name="Barrio de Oportunidades"
           data-role="Centro Erasmus+, Sevilla"
           data-url="https://barriodeoportunidades.es/"
           data-info="Entidad española (Badeo). Coordina el taller de cinefórum inclusivo, gestiona los riesgos del consorcio y se ocupa de la difusión, sostenibilidad local y recolección de feedback.">
@@ -304,7 +307,7 @@
           </div>
         </div>
 
-        <div class="pcard reveal-up" style="transition-delay:.3s" data-name="Teatro Para Tod@s"
+        <div class="pcard reveal-up" style="transition-delay:.3s" tabindex="0" role="button" data-name="Teatro Para Tod@s"
           data-role="Teatro Inclusivo & Participación"
           data-url="https://teatroparatodos.es/"
           data-info="Fundación basada en España enfocada en la diversidad. Lidera el taller principal de teatro inclusivo e improvisación, empoderando a los jóvenes mediante herramientas dramáticas.">
@@ -394,7 +397,7 @@
   <!-- Modal Partners -->
   <div class="partner-modal" id="partnerModal" aria-hidden="true">
     <div class="partner-modal__bg" id="partnerModalBg"></div>
-    <div class="partner-modal__content" id="partnerModalContent">
+    <div class="partner-modal__content" id="partnerModalContent" role="dialog" aria-modal="true" aria-labelledby="partnerModalName">
       <button class="partner-modal__close" id="partnerModalClose" aria-label="Cerrar modal">
         <span></span><span></span>
       </button>
@@ -420,6 +423,73 @@
       <span>Libero Teatro · Sinergie · Barrio de Oportunidades · Teatro Para Tod@s</span>
     </div>
   </footer>
+
+  <!-- ═══ ACCESSIBILITY WIDGET ══════════════════════════ -->
+  <aside class="a11y-widget" id="a11yWidget" aria-label="Opciones de accesibilidad">
+    <button class="a11y-widget__btn" id="a11yToggle"
+            aria-label="Abrir opciones de accesibilidad"
+            aria-expanded="false"
+            aria-controls="a11yPanel">
+      <!-- Universal Accessibility Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" width="24" height="24">
+        <path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+      </svg>
+    </button>
+
+    <div class="a11y-widget__panel" id="a11yPanel" aria-hidden="true">
+      <div class="a11y-widget__panel-header">
+        <span class="a11y-widget__panel-title">Accesibilidad</span>
+        <button class="a11y-widget__close" id="a11yClose" aria-label="Cerrar panel de accesibilidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false" width="16" height="16">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="a11y-widget__options">
+
+        <div class="a11y-option">
+          <span class="a11y-option__label" id="label-fontsize">Tamaño de texto</span>
+          <div class="a11y-option__row" role="group" aria-labelledby="label-fontsize">
+            <button class="a11y-size-btn" id="fontDecrease" aria-label="Reducir tamaño de texto">A−</button>
+            <button class="a11y-size-btn a11y-size-btn--mid" id="fontReset" aria-label="Tamaño normal">A</button>
+            <button class="a11y-size-btn a11y-size-btn--lg" id="fontIncrease" aria-label="Aumentar tamaño de texto">A+</button>
+          </div>
+        </div>
+
+        <div class="a11y-option">
+          <span class="a11y-option__label">Alto contraste</span>
+          <button class="a11y-toggle" id="contrastToggle" aria-pressed="false" aria-label="Alto contraste">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="a11y-option">
+          <span class="a11y-option__label">Sin animaciones</span>
+          <button class="a11y-toggle" id="motionToggle" aria-pressed="false" aria-label="Sin animaciones">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="a11y-option">
+          <span class="a11y-option__label">Fuente legible</span>
+          <button class="a11y-toggle" id="readableToggle" aria-pressed="false" aria-label="Fuente legible">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="a11y-option">
+          <span class="a11y-option__label">Espaciado amplio</span>
+          <button class="a11y-toggle" id="spacingToggle" aria-pressed="false" aria-label="Espaciado amplio">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <button class="a11y-widget__reset" id="a11yReset">Restablecer todo</button>
+    </div>
+  </aside>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>

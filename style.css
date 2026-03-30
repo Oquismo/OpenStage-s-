@@ -24,6 +24,28 @@
   --ease-in-hard: cubic-bezier(1, 0, 0.65, 0.61);
 }
 
+/* ── Skip link ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 10000;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
 /* ── Reset ────────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -44,6 +66,34 @@ body { overflow-x: hidden; }
 
 img { display: block; max-width: 100%; }
 a   { color: inherit; text-decoration: none; }
+
+/* ── Focus visible ────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Cards: anillo de foco prominente para navegacion por teclado */
+.pcard:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 0;
+  z-index: 1;
+}
+
+/* Botones del header y modal: foco claro sobre fondos oscuros */
+.header__toggle:focus-visible,
+.partner-modal__close:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ── Touch: restaurar cursor del sistema ──────────────── */
+@media (hover: none), (pointer: coarse) {
+  * { cursor: auto !important; }
+  .cursor,
+  .cursor__dot { display: none !important; }
+}
 
 /* ── Custom cursor ────────────────────────────────────── */
 * { cursor: none; }
@@ -1102,4 +1152,345 @@ a   { color: inherit; text-decoration: none; }
 
   .nav-overlay { padding: 6rem 1.5rem 2.5rem; }
   .nav-overlay__meta { left: 1.5rem; bottom: 2rem; }
+}
+
+/* ══════════════════════════════════════════════════════
+   ACCESSIBILITY WIDGET
+══════════════════════════════════════════════════════ */
+
+/* ── Widget container ─────────────────────────────────── */
+.a11y-widget {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Trigger button ───────────────────────────────────── */
+.a11y-widget__btn {
+  width: 48px;
+  height: 52px;
+  background: var(--accent);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 3px 3px 14px rgba(0,0,0,0.25);
+  transition: width 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.a11y-widget__btn:hover  { background: #c43a10; width: 56px; }
+.a11y-widget__btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  background: #c43a10;
+}
+
+/* ── Panel ────────────────────────────────────────────── */
+.a11y-widget__panel {
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+  width: min(285px, calc(100vw - 64px));
+  background: #fff;
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 4px 4px 28px rgba(0,0,0,0.18);
+  border-left: 3px solid var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.a11y-widget__panel--open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ── Panel header ─────────────────────────────────────── */
+.a11y-widget__panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1rem 0.7rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+.a11y-widget__panel-title {
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.a11y-widget__close {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.a11y-widget__close:hover { color: var(--text); }
+.a11y-widget__close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Options list ─────────────────────────────────────── */
+.a11y-widget__options {
+  padding: 0.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.a11y-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.a11y-option:last-child { border-bottom: none; }
+.a11y-option__label {
+  font-family: var(--f-body);
+  font-size: 0.83rem;
+  font-weight: 400;
+  color: var(--text);
+  flex: 1;
+}
+.a11y-option__row {
+  display: flex;
+  gap: 3px;
+}
+
+/* Font-size buttons */
+.a11y-size-btn {
+  background: var(--bg-off);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.28rem 0.55rem;
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 34px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.a11y-size-btn--mid { font-size: 0.84rem; }
+.a11y-size-btn--lg  { font-size: 0.96rem; }
+.a11y-size-btn:hover,
+.a11y-size-btn--active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.a11y-size-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Toggle switch */
+.a11y-toggle {
+  position: relative;
+  width: 42px;
+  height: 23px;
+  background: #ccc;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.22s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+.a11y-toggle[aria-pressed="true"] { background: var(--accent); }
+.a11y-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.a11y-toggle__knob {
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.22s ease;
+  pointer-events: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.a11y-toggle[aria-pressed="true"] .a11y-toggle__knob { transform: translateX(19px); }
+
+/* Reset button */
+.a11y-widget__reset {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 0.2rem 1rem 0.9rem;
+  padding: 0.5rem;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font-family: var(--f-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.a11y-widget__reset:hover    { border-color: var(--accent); color: var(--accent); }
+.a11y-widget__reset:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Mobile: desplazar al fondo */
+@media (max-width: 600px) {
+  .a11y-widget {
+    top: auto;
+    bottom: 1.5rem;
+    transform: none;
+  }
+  .a11y-widget__panel {
+    top: auto;
+    bottom: 60px;
+    transform: translateX(-10px);
+  }
+  .a11y-widget__panel--open { transform: translateX(0); }
+}
+
+/* ══════════════════════════════════════════════════════
+   BODY MODIFIER CLASSES (aplicadas por el widget)
+══════════════════════════════════════════════════════ */
+
+/* Tamaño de texto */
+html.a11y-font-lg { font-size: 19px; }
+html.a11y-font-xl { font-size: 22px; }
+html.a11y-font-sm { font-size: 14px; }
+
+/* Alto contraste */
+html.a11y-contrast {
+  --bg:         #000000 !important;
+  --bg-off:     #0d0d0d !important;
+  --bg-dark:    #000000 !important;
+  --bg-dark2:   #0d0d0d !important;
+  --text:       #ffffff !important;
+  --text-dim:   #e0e0e0 !important;
+  --text-light: #ffffff !important;
+  --accent:     #ffdd00 !important;
+  --border:     rgba(255,255,255,0.4) !important;
+  --border-dim: rgba(255,255,255,0.15) !important;
+}
+html.a11y-contrast .header__logo,
+html.a11y-contrast .hero-title,
+html.a11y-contrast .nav-link { color: #ffffff !important; }
+html.a11y-contrast .stat     { background: #1a1500 !important; }
+html.a11y-contrast .stat__n  { color: #ffdd00 !important; }
+html.a11y-contrast .stat__l  { color: #e0e0e0 !important; }
+html.a11y-contrast .pcard    { background: #0d0d0d !important; }
+html.a11y-contrast .pillar   { background: #0d0d0d !important; }
+html.a11y-contrast .partner-modal__content { background: #111 !important; }
+html.a11y-contrast .partner-modal__name,
+html.a11y-contrast .partner-modal__info { color: #fff !important; }
+
+/* Sin animaciones (via widget, complementa prefers-reduced-motion del SO) */
+html.a11y-no-motion *,
+html.a11y-no-motion *::before,
+html.a11y-no-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0ms !important;
+}
+html.a11y-no-motion .pcard:hover { transform: none !important; }
+/* Excepto el propio widget, que mantiene sus transiciones */
+html.a11y-no-motion .a11y-widget *,
+html.a11y-no-motion .a11y-widget *::before { transition-duration: 0.2s !important; }
+
+/* Fuente legible (dislexia) */
+html.a11y-readable * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-style: normal !important;
+  letter-spacing: 0.03em !important;
+}
+html.a11y-readable .italic,
+html.a11y-readable em,
+html.a11y-readable .hero-title .italic { font-style: normal !important; }
+
+/* Espaciado amplio */
+html.a11y-spacing p,
+html.a11y-spacing li,
+html.a11y-spacing .mission__body,
+html.a11y-spacing .phase__desc,
+html.a11y-spacing .pillar__desc,
+html.a11y-spacing .partners__intro,
+html.a11y-spacing .partner-modal__info,
+html.a11y-spacing .eu-strip__text {
+  line-height: 2.2 !important;
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.12em !important;
+}
+
+/* ── prefers-reduced-motion ───────────────────────────── */
+/*
+   Usuarios con trastornos vestibulares, epilepsia u otras
+   condiciones desactivan las animaciones desde el sistema.
+   Este bloque las respeta y muestra el contenido directamente.
+*/
+@media (prefers-reduced-motion: reduce) {
+  /* Restaurar cursor del sistema */
+  * { cursor: auto !important; }
+  .cursor,
+  .cursor__dot { display: none !important; }
+
+  /* Mostrar contenido de reveal directamente, sin transicion */
+  .reveal-fade,
+  .reveal-up,
+  .reveal-left {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Titulos ocultos por GSAP: visibles de entrada */
+  .word, .rv { transform: none !important; }
+
+  /* Deshabilitar animacion de la galeria horizontal */
+  .gallery-strip__track { animation: none !important; }
+
+  /* Deshabilitar animacion del marcador de scroll */
+  .hero-scroll__line { animation: none !important; opacity: 0.4; }
+
+  /* Sin parallax ni transiciones de hover con movimiento */
+  .pcard:hover { transform: none !important; }
+  .pcard { transition: background 0.3s ease !important; }
+
+  /* Sin animacion de entrada en botones */
+  .btn-fill::before { transition: none !important; }
+  .btn-fill        { transition: color 0.2s ease !important; }
+
+  /* Sin efecto de escala en logos de partner */
+  .pcard__logo-wrap img { transition: filter 0.3s ease, opacity 0.3s ease !important; }
+
+  /* Sin transicion de imagen en galeria */
+  .gallery-strip__item img { transition: none !important; }
+
+  /* Nav links: visibles inmediatamente */
+  .nav-link { transform: none !important; transition: opacity 0.3s ease, padding-left 0.3s ease !important; }
+
+  /* Modal sin animacion de entrada (GSAP lo gestiona por JS) */
+  .partner-modal__content { transition: none !important; }
 }
