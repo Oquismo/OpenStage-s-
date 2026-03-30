@@ -65,6 +65,16 @@
   pointer-events: none;
 }
 
+/* ── Cursores normales (sin cursor custom en esta página) ── */
+.page-comunidad * { cursor: auto; }
+.page-comunidad a,
+.page-comunidad button,
+.page-comunidad select,
+.page-comunidad [role="button"],
+.page-comunidad input[type="submit"] { cursor: pointer; }
+.page-comunidad input[type="text"],
+.page-comunidad textarea { cursor: text; }
+
 /* ── Header scroll shadow ────────────────────────────── */
 .header--scrolled {
   box-shadow: 0 1px 0 var(--border);
