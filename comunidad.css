@@ -1,0 +1,76 @@
+/* ═══════════════════════════════════════════════════════
+   comunidad.css — Estilos exclusivos de comunidad.html
+   (sin GSAP, sin Lenis, sin animaciones de hero)
+═══════════════════════════════════════════════════════ */
+
+/* ── Hero lite ────────────────────────────────────────── */
+.com-hero {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  padding: 10rem 5vw 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.com-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(230,74,25,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.com-hero__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.com-hero__eyebrow {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.com-hero__title {
+  font-family: var(--f-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.com-hero__sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(242, 237, 230, .65);
+  max-width: 480px;
+}
+
+/* ── Foro en modo página (sin bg-off, fondo blanco limpio) */
+.forum--page {
+  background: var(--bg);
+  padding-top: 5rem;
+  padding-bottom: 8rem;
+}
+
+/* ── Nav link activo ─────────────────────────────────── */
+.nav-link--active {
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* ── Header scroll shadow ────────────────────────────── */
+.header--scrolled {
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .com-hero { padding: 8rem 1.5rem 4rem; }
+}

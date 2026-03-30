@@ -611,3 +611,4 @@ function initA11yWidget() {
 
 // ── Launch ─────────────────────────────────────────────
 window.addEventListener('load', () => { initIntro(); initA11yWidget() })
+

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidad — OPENSTAGE(S)</title>
+
+  <meta name="description" content="Espacio de preguntas y respuestas de la comunidad OPENSTAGE(S). Pregunta, comparte y conecta con otros participantes del proyecto." />
+  <meta property="og:title" content="Comunidad — OPENSTAGE(S)" />
+  <meta property="og:description" content="Espacio de preguntas y respuestas de la comunidad OPENSTAGE(S)." />
+  <meta property="og:image" content="https://openstages.eu/img/hero1.jpg" />
+  <meta property="og:url" content="https://openstages.eu/comunidad.html" />
+  <link rel="canonical" href="https://openstages.eu/comunidad.html" />
+  <link rel="icon" type="image/png" href="img/logobarrio.png" />
+  <link rel="apple-touch-icon" href="img/logobarrio.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="comunidad.css" />
+</head>
+
+<body class="page-comunidad">
+
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__brand">
+      <a href="index.html" class="header__logo">OPEN<em>STAGE(S)</em></a>
+      <img src="img/funded_ES/horizontal/RGB/PNG/ES_FundedbytheEU_RGB_WHITE.png" alt="Cofinanciado por la Unión Europea"
+        class="header__eu-logo" />
+    </div>
+    <button class="header__toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navOverlay">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Nav overlay -->
+  <nav class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <div class="nav-overlay__links">
+      <a href="index.html#mission"  class="nav-link" data-num="01">Misión</a>
+      <a href="index.html#partners" class="nav-link" data-num="02">Partners</a>
+      <a href="index.html#phases"   class="nav-link" data-num="03">Fases</a>
+      <a href="comunidad.html"      class="nav-link nav-link--active" data-num="04">Comunidad</a>
+      <a href="index.html#contact"  class="nav-link" data-num="05">Contacto</a>
+    </div>
+    <div class="nav-overlay__meta">
+      <p>Proyecto cofinanciado por la Unión Europea</p>
+      <p>Creative Europe · 2024–2026</p>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ═══ HERO LITE ══════════════════════════════════════ -->
+    <section class="com-hero" aria-hidden="true">
+      <div class="com-hero__inner">
+        <p class="com-hero__eyebrow">OPENSTAGE(S)</p>
+        <h1 class="com-hero__title">Comunidad</h1>
+        <p class="com-hero__sub">Pregunta, comparte, responde.<br>Este espacio es de todos.</p>
+      </div>
+    </section>
+
+    <!-- ═══ FORO ══════════════════════════════════════════ -->
+    <section class="forum forum--page" id="forum" aria-labelledby="forum-title">
+
+      <div class="forum__header">
+        <div class="forum__header-text">
+          <h2 class="forum__title" id="forum-title">Preguntas</h2>
+          <p class="forum__subtitle">Todas las conversaciones de la comunidad</p>
+        </div>
+        <button class="forum__new-btn" id="forumOpenForm" aria-expanded="false" aria-controls="forumFormWrap">
+          + Nueva pregunta
+        </button>
+      </div>
+
+      <!-- Formulario nueva pregunta -->
+      <div class="forum__form-wrap" id="forumFormWrap" aria-hidden="true">
+        <form class="forum__form" id="forumForm" novalidate>
+          <div class="forum__form-row">
+            <div class="forum__field">
+              <label for="fAuthor">Tu nombre <span aria-hidden="true">*</span></label>
+              <input type="text" id="fAuthor" name="author" maxlength="60" required autocomplete="name" placeholder="Nombre o apodo" />
+            </div>
+            <div class="forum__field">
+              <label for="fTag">Tema</label>
+              <select id="fTag" name="tag">
+                <option value="general">General</option>
+                <option value="teatro">Teatro</option>
+                <option value="inclusión">Inclusión</option>
+                <option value="proyecto">Proyecto</option>
+                <option value="participar">¿Cómo participar?</option>
+              </select>
+            </div>
+          </div>
+          <div class="forum__field">
+            <label for="fQuestion">Tu pregunta <span aria-hidden="true">*</span></label>
+            <textarea id="fQuestion" name="question" rows="4" maxlength="800" required placeholder="Escribe aquí tu pregunta o mensaje…"></textarea>
+            <span class="forum__char-count" id="fCharCount" aria-live="polite">0 / 800</span>
+          </div>
+          <div class="forum__form-actions">
+            <button type="button" class="forum__cancel" id="forumCancel">Cancelar</button>
+            <button type="submit" class="forum__submit">Publicar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Filtros -->
+      <div class="forum__filters" role="group" aria-label="Filtrar por tema">
+        <button class="forum__filter forum__filter--active" data-filter="all">Todos</button>
+        <button class="forum__filter" data-filter="teatro">Teatro</button>
+        <button class="forum__filter" data-filter="inclusión">Inclusión</button>
+        <button class="forum__filter" data-filter="proyecto">Proyecto</button>
+        <button class="forum__filter" data-filter="participar">¿Cómo participar?</button>
+        <button class="forum__filter" data-filter="general">General</button>
+      </div>
+
+      <!-- Lista de preguntas -->
+      <div class="forum__list" id="forumList" aria-live="polite" aria-label="Preguntas de la comunidad"></div>
+      <p class="forum__empty" id="forumEmpty" hidden>Todavía no hay preguntas en esta categoría. ¡Sé el primero!</p>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__row footer__row--top">
+      <span class="footer__logo">OPENSTAGE(S)</span>
+      <span class="footer__tag">Stages for Inclusion · 2024–2026</span>
+    </div>
+    <div class="footer__row footer__row--bottom">
+      <span>© 2024 OPENSTAGE(S) — Creative Europe</span>
+      <span>Libero Teatro · Sinergie · Barrio de Oportunidades · Teatro Para Tod@s</span>
+    </div>
+  </footer>
+
+  <!-- ═══ ACCESSIBILITY WIDGET ══════════════════════════ -->
+  <aside class="a11y-widget" id="a11yWidget" aria-label="Opciones de accesibilidad">
+    <button class="a11y-widget__btn" id="a11yToggle"
+            aria-label="Abrir opciones de accesibilidad"
+            aria-expanded="false"
+            aria-controls="a11yPanel">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" width="24" height="24">
+        <path d="M20.5 6c-2.61.7-5.67 1-8.5 1s-5.89-.3-8.5-1L3 8c1.86.5 4 .83 6 1v13h2v-6h2v6h2V9c2-.17 4.14-.5 6-1l-.5-2zM12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+      </svg>
+    </button>
+    <div class="a11y-widget__panel" id="a11yPanel" aria-hidden="true">
+      <div class="a11y-widget__panel-header">
+        <span class="a11y-widget__panel-title">Accesibilidad</span>
+        <button class="a11y-widget__close" id="a11yClose" aria-label="Cerrar panel de accesibilidad">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false" width="16" height="16">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="a11y-widget__options">
+        <div class="a11y-option">
+          <span class="a11y-option__label" id="label-fontsize">Tamaño de texto</span>
+          <div class="a11y-option__row" role="group" aria-labelledby="label-fontsize">
+            <button class="a11y-size-btn" id="fontDecrease" aria-label="Reducir tamaño de texto">A−</button>
+            <button class="a11y-size-btn a11y-size-btn--mid" id="fontReset" aria-label="Tamaño normal">A</button>
+            <button class="a11y-size-btn a11y-size-btn--lg" id="fontIncrease" aria-label="Aumentar tamaño de texto">A+</button>
+          </div>
+        </div>
+        <div class="a11y-option">
+          <span class="a11y-option__label">Alto contraste</span>
+          <button class="a11y-toggle" id="contrastToggle" aria-pressed="false" aria-label="Alto contraste">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="a11y-option">
+          <span class="a11y-option__label">Sin animaciones</span>
+          <button class="a11y-toggle" id="motionToggle" aria-pressed="false" aria-label="Sin animaciones">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="a11y-option">
+          <span class="a11y-option__label">Fuente legible</span>
+          <button class="a11y-toggle" id="readableToggle" aria-pressed="false" aria-label="Fuente legible">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="a11y-option">
+          <span class="a11y-option__label">Espaciado amplio</span>
+          <button class="a11y-toggle" id="spacingToggle" aria-pressed="false" aria-label="Espaciado amplio">
+            <span class="a11y-toggle__knob" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+      <button class="a11y-widget__reset" id="a11yReset">Restablecer todo</button>
+    </div>
+  </aside>
+
+  <script src="comunidad.js"></script>
+  <!-- WIP: eliminar esta línea y wip.js cuando la web esté lista -->
+  <script src="wip.js"></script>
+
+</body>
+</html>
